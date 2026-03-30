@@ -9,30 +9,39 @@ void solve(){
     bool jake = true;
     int left = 0;
     int right = n-1;
+    // they said that ai is the distinct
     while(left<=right){
-        if(jake){
-            if(a[left]<a[right]){
-                left++;
-                ans+="L";
-            }
-            else{
-                right--;
-                ans+="R";
-            }
+        if(left == right){
+            ans += "L";
+            break;
+        }
+        if(a[left]<a[right]){
+            left++;
+            ans += "L";
         }
         else{
-            if(a[left]>a[right]){
-                left++;
-                ans+="L";
-            }
-            else{
-                right--;
-                ans+="R";
-            }
+            right--;
+            ans += "R";
         }
-        jake = false;
+        if(left == right){
+            ans += "L";
+            break;
+        }
+        if(a[left]>a[right]){
+            ans += "L";
+            ans += 'R';
+        }
+        else if(a[left] < a[right]){
+            ans+= "R";
+            ans += "L";
+        }
+        left++;
+        right--;
+        
+
     }
     cout<<ans<<endl;
+    
 }
 int main(){
     int t;
