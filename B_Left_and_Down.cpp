@@ -1,29 +1,21 @@
 #include<bits/stdc++.h>
 using namespace std;
-
-void solve(){
-    int x,y,k;
-    cin>>x>>y>>k;
-
-    for(int i=1;i<=k;i++){
-        if(x % i == 0){
-            int div = x / i;
-
-            
-            if(y/div <= k && y % div == 0){
-                cout<<1<<endl;
-                return;
-            }
-        }
-    }
-    cout<<2<<endl;
+#define int long long
+void sol()
+{
+    int a,b,k;
+    cin>>a>>b>>k;
+    int g=__gcd(a,b);
+    a/=g,b/=g;
+    cout<<((a<=k && b<=k)?1:2)<<endl;
 }
-
-int main(){
+signed main()
+{
     int t;
     cin>>t;
-    while(t--){
-        solve();
+    while(t--)
+    {
+        sol();
     }
     return 0;
 }
